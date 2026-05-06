@@ -17,7 +17,14 @@ class AssetsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'assets_id'=>'AST-'.strtolower($this->faker->unique()->bothify('???-###')),
+            'name'=>$this->faker->title(),
+            'serial_number'=>$this->faker->unique()->bothify('??#####??'),
+            'purchased_date'=>$this->faker->date(),
+            'warranty_expiry'=>$this->faker->date(),
+            'status'=>$this->faker->randomElement(['available','assigned','maintenance']),
+            'condition'=>'fair'
+            
         ];
     }
 }

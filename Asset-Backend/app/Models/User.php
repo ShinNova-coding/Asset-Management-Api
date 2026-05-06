@@ -18,6 +18,22 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $guarded=[];
+
+    public function roles(){
+        return $this->belongsTo(Role::class);
+    }
+
+    public function assets(){
+        return $this->belongsToMany(Assets::class,'assignments','asser_id','employee_id');
+    }
+
+
+
+
+
+
+
+
     /**
      * The attributes that should be hidden for serialization.
      *

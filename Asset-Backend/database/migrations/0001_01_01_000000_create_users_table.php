@@ -15,7 +15,7 @@ return new class extends Migration
             
             $table->string('employee_id')->primary();
             $table->string('name');
-            $table->foreignId('roles_id')->constrained('roles')->onDelete('cascade');
+            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
             $table->string('email')->unique();
             $table->string('position')->nullable();
             $table->string('status')->default('active');

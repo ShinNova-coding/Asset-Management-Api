@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assignments', function (Blueprint $table) {
+        Schema::create('maintenance', function (Blueprint $table) {
             $table->id();
-            $table->string('employee_id'); // must exist
-            $table->foreign('employee_id')->references('employee_id')->on('users')->cascadeOnDelete();
             $table->string('asset_id');
             $table->foreign('asset_id')->references('asset_id')->on('assets')->cascadeOnDelete();
-            $table->string('note')->nullable();
-            $table->string('status')->default('available');
-            $table->date('assign_date');
-            $table->date('return_date');
+            $table->string('vendor');
+            $table->integer('cost');
+            $table->string('status')->default('completed');
+            $table->date('maintenance_date');
+            $table->date('completed_date');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assignments');
+        Schema::dropIfExists('maintenance');
     }
 };
