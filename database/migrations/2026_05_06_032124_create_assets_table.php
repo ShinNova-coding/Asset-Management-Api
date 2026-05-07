@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('serial_number')->unique();
             $table->date('purchased_date');
             $table->date('warranty_expiry');
-            $table->foreignId('categories_id')->constrained('categories')->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->string('status')->default('available');
             $table->string('condition')->default('fair');
             $table->timestamps();

@@ -25,12 +25,12 @@ class User extends Authenticatable
     public $incrementing = false;
     protected $keyType = 'string';
 
-    public function roles(){
+    public function role(){
         return $this->belongsTo(Role::class);
     }
 
     public function assets(){
-        return $this->belongsToMany(Assets::class,'assignments','asser_id','employee_id');
+        return $this->belongsToMany(Asset::class,'assignments','asset_id','employee_id');
     }
 
 

@@ -12,7 +12,7 @@ class Maintenance extends Model
     protected $guarded=[];
 
     public function assets(){
-        return $this->belongsTo(Assets::class);
+        return $this->belongsTo(Asset::class);
     }
 
 }

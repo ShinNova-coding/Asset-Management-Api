@@ -32,6 +32,8 @@ class UserFactory extends Factory
             'position'=>$this->faker->title(),
             'status'=>'active',
             'phone_number'=>$this->faker->phoneNumber(),
+            'joined_date'=>$this->faker->date(),
+            'left_date'=>$this->faker->date(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),

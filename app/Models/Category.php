@@ -12,6 +12,6 @@ use HasFactory;
     protected $guarded=[];
 
     public function assets(){
-        return $this->hasMany(Assets::class);
+        return $this->hasMany(Asset::class,'asset_id');
     }
 }

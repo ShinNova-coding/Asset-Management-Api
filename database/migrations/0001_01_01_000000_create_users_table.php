@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('position')->nullable();
             $table->string('status')->default('active');
             $table->string('phone_number')->nullable();
+            $table->date('joined_date');
+            $table->date('left_date')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
