@@ -12,6 +12,6 @@ class Permissions extends Model
     protected $guarded=[];
 
     public function roles(){
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class,'role_has_permission','role_id','permissions_id');
     }
 }

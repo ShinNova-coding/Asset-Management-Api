@@ -19,6 +19,12 @@ class User extends Authenticatable
      */
     protected $guarded=[];
 
+    protected $primaryKey = 'employee_id';
+
+    // တကယ်လို့ employee_id က ဂဏန်းမဟုတ်ဘဲ စာသား (String) ဆိုရင် ဒါပါ ထည့်ရပါမယ်
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     public function roles(){
         return $this->belongsTo(Role::class);
     }
