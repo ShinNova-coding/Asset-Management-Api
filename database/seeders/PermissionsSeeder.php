@@ -11,8 +11,37 @@ class PermissionsSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
-    {
-        Permissions::factory(3)->create();
+    // PermissionSeeder.php
+
+public function run(): void
+{
+    $permissions = [
+        // User & Role
+        'manage-users',
+        'manage-roles',
+
+        // Assets
+        'view-assets',
+        'create-assets',
+        'edit-assets',
+        'delete-assets',
+
+        // Categories & Brands
+        'manage-categories',
+        'manage-brands',
+        'manage-locations',
+
+        // Maintenance
+        'view-maintenance',
+        'update-maintenance',
+
+        // Employee Side (Mobile App အတွက်ပါ ကြိုစဉ်းစားထားတာ)
+        'request-assets',
+        'view-my-assets',
+    ];
+
+    foreach ($permissions as $permission) {
+        Permissions::create(['name' => $permission]);
     }
+}
 }
