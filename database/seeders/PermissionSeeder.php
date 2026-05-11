@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Permissions;
+use App\Models\Permission;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PermissionsSeeder extends Seeder
+class PermissionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -34,6 +34,7 @@ public function run(): void
         // Maintenance
         'view-maintenance',
         'update-maintenance',
+        'view-dashboard',
 
         // Employee Side (Mobile App အတွက်ပါ ကြိုစဉ်းစားထားတာ)
         'request-assets',
@@ -41,7 +42,7 @@ public function run(): void
     ];
 
     foreach ($permissions as $permission) {
-        Permissions::create(['name' => $permission]);
+        Permission::create(['name' => $permission]);
     }
 }
 }

@@ -28,7 +28,7 @@
                     <label class="flex items-center p-3 bg-white border border-gray-200 rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-200 transition group">
                         <input type="checkbox" name="permissions[]" value="{{ $permission->id }}"
                             class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
-                            @if($role->permissions->contains('id',$permission->id))
+                            @if($role->permission->contains('id',$permission->id))
                             checked
                             @endif
                             >

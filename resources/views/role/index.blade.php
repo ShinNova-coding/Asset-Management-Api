@@ -31,7 +31,7 @@
                 <td>{{ $key + 1 }}</td>
                 <td>{{ $role->name }}</td>
                 <td>
-                    @foreach($role->permissions as $permission)
+                    @foreach($role->permission as $permission)
                         <span class="badge bg-info text-dark">{{ $permission->name }}</span>
                     @endforeach
                 </td>

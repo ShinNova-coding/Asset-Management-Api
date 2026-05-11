@@ -17,7 +17,7 @@ class Asset extends Model
 
     protected $keyType='string';
 
-    public function users(){
+    public function user(){
         return $this->belongsToMany(User::class,'assignments','employee_id','asset_id');
     }
 

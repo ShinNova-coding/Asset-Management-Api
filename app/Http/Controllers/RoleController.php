@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permission;
 use App\Models\Permissions;
 use App\Models\Role;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $permission=Permissions::all();
+        $permission=Permission::all();
         $roles=Role::all();
         return view('role.index',compact('permission','roles'));
     }
@@ -24,7 +25,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $permissions=Permissions::all();
+        $permissions=Permission::all();
         return view('role.create',compact('permissions'));
     }
 
@@ -64,7 +65,7 @@ return redirect('/roles')->with('success', 'Role Created Successfully');
     public function edit(Role $role)
     {
         // dd($role->id);
-        $permissions=Permissions::all();
+        $permissions=Permission::all();
         return view('role.edit',compact('role','permissions'));
     }
 
@@ -88,7 +89,7 @@ return redirect('/roles')->with('success', 'Role Created Successfully');
        );
 
        //pivot table update
-       $role->permissions()->sync($request->permissions);
+       $role->permission()->sync($request->permissions);
 
        return redirect('/roles');
     }
@@ -98,7 +99,7 @@ return redirect('/roles')->with('success', 'Role Created Successfully');
      */
     public function destroy(Role $role)
     {
-        $role->permissions()->detach();
+        $role->permission()->detach();
         $role->delete();
         return redirect('/roles');
     }

@@ -10,10 +10,10 @@
 <body>
     <h1>{{ Auth::user()->role->name?? 'Guest' }} Dashboard</h1>
     
-    @if (Auth::user()->role->permissions->contains('name','manage-users'))
+    @if (Auth::user()->role->permission->contains('name','manage-users'))
         <h1>Manage User</h1>
     @endif
-    @if(Auth::user()->role->permissions->contains('name','manage-roles'))
+    @if(Auth::user()->role->permission->contains('name','manage-roles'))
     <a href="/roles">Manage roles</a>
     @endif
     <form action="/logout" method="POST">
