@@ -47,7 +47,7 @@ class RoleController extends Controller
        );
 
        //adding data in pivot table 
-       $role->permissions()->attach($request->permissions);
+       $role->permission()->attach($request->permissions);
 return redirect('/roles')->with('success', 'Role Created Successfully');   
  }
 

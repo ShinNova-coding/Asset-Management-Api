@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body>
-    <div class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-xl shadow-lg border border-gray-100">
+@extends('layouts.app')
+@section('content')
+    <div class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-xl ">
     <div class="mb-8">
-        <h2 class="text-2xl font-bold text-gray-800">Add New Role</h2>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Add New Role</h2>
         <p class="text-gray-500 text-sm">Define role name and assign its specific permissions.</p>
     </div>
 
@@ -49,5 +41,4 @@
         </div>
     </form>
 </div>
-</body>
-</html>
+@endsection

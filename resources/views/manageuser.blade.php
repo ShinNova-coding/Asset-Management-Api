@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Manage Users</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</head>
-<body class="bg-light p-4">
-    <div class="container">
+@extends('layouts.app')
+@section('content')
         <h3 class="mb-4">User CRUD Management</h3>
         
         <div class="card mb-4 shadow-sm">
@@ -103,5 +95,4 @@
 
         fetchUsers();
     </script>
-</body>
-</html>
+@endsection

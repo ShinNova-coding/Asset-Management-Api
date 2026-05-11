@@ -8,7 +8,7 @@ use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('/login');
+    return view('auth.login');
 });
 
 Route::get('/login',[LoginController::class,'create'])->name('login')->middleware('guest');

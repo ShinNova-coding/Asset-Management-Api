@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body>
- <h1>Edit Roles</h1>
-     <form action="/roles/{{ $role->id }}" method="POST">
+@extends('layouts.app')
+@section('content')
+<div class="max-w-4xl mx-auto mt-10 p-6 bg-white  ">
+<h2 class="text-2xl font-bold text-gray-800 mb-5">
+                    Edit Role: {{ $role->name }}
+                </h2>     
+                
+                <form action="/roles/{{ $role->id }}" method="POST">
         @csrf
         @method('PATCH')
 
@@ -49,5 +45,6 @@
             </button>
         </div>
     </form>
-</body>
-</html>
+
+    </div>
+@endsection
