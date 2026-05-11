@@ -28,7 +28,7 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        //return $request->all();
+        // return $request->all();
     $credential=request()->validate([
     'email'=>'required|email',
     'password'=>'required']
@@ -39,14 +39,14 @@ class LoginController extends Controller
     $request->session()->regenerate();
 
     $user=Auth::user();
-
     // User ရဲ့ role ထဲမှာ 'view-dashboard' ဆိုတဲ့ permission ပါလား စစ်မယ်
-    if ($user->role && $user->role->permissions->contains('name', 'view-dashboard')) {
-        return redirect('/dashboard');
-    }
-    elseif($user->role && $user->role->permissions->contains('name', 'view-my-assets')) {
-        return redirect('/asset');
-    }
+   if ($user->role_id == 1) {
+
+    return redirect('/dashboard');
+}
+    // elseif($user->role && $user->role->permission->contains('name', 'view-my-assets')) {
+    //     return redirect('/asset');
+    // }
    
     else{
         return redirect('/login')->with('error','Invalid role');

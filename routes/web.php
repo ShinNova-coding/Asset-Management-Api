@@ -6,7 +6,7 @@ use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/login');
 });
 
 Route::get('/login',[LoginController::class,'create'])->name('login')->middleware('guest');

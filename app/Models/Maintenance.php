@@ -11,7 +11,7 @@ class Maintenance extends Model
 
     protected $guarded=[];
 
-    public function assets(){
+    public function asset(){
         return $this->belongsTo(Asset::class);
     }
 
