@@ -40,7 +40,7 @@ class LoginController extends Controller
 
     $user=Auth::user();
     // User ရဲ့ role ထဲမှာ 'view-dashboard' ဆိုတဲ့ permission ပါလား စစ်မယ်
-   if ($user->role_id == 1) {
+   if ($user->role->name=='Admin') {
 
     return redirect('/dashboard');
 }

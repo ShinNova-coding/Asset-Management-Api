@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,10 @@
 </head>
 <body class="bg-light p-4">
     <div class="container">
+=======
+@extends('layouts.app')
+@section('content')
+>>>>>>> 949c4877df802f32be66384faf2308d20eb732c2
         <h3 class="mb-4">User CRUD Management</h3>
         
         <div class="card mb-4 shadow-sm">
@@ -103,5 +108,9 @@
 
         fetchUsers();
     </script>
+<<<<<<< HEAD
 </body>
 </html>
+=======
+@endsection
+>>>>>>> 949c4877df802f32be66384faf2308d20eb732c2
