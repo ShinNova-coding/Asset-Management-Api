@@ -4,59 +4,54 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
     public function index()
     {
         $categories = Category::all();
-        return view('managecategory', compact('categories'));
+        return view('category.index', compact('categories'));
     }
 
+    public function create()
+    {
+        return view('category.create');
+    }
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required|string|max:255|unique:categories,name',
         ]);
 
-        if ($validator->fails()) {
-            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
-        }
+        Category::create([
+            'name' => $request->name
+        ]);
 
-        $category = Category::create($request->only('name'));
-        return response()->json(['status' => 'success', 'data' => $category], 201);
+        return redirect('/categories')->with('success', 'Category Created Successfully');
     }
 
-    public function show(Category $category)
+    public function edit(Category $category)
     {
-        return response()->json(['status' => 'success', 'data' => $category->load('assets')], 200);
+        return view('category.edit', compact('category'));
     }
 
     public function update(Request $request, Category $category)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required|string|max:255|unique:categories,name,' . $category->id,
         ]);
 
-        if ($validator->fails()) {
-            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
-        }
+        $category->update([
+            'name' => $request->name
+        ]);
 
-        $category->update($request->only('name'));
-        return response()->json(['status' => 'success', 'message' => 'Category updated successfully'], 200);
+        return redirect('/categories')->with('success', 'Category Updated Successfully');
     }
 
-    public function destroy(int $id)
+    public function destroy(Category $category)
     {
-        $deleted = Category::destroy($id);
-
-        if (!$deleted) {
-            return response()->json(['status' => 'error', 'message' => 'Category not found'], 404);
-        }
-
-        return response()->json(['status' => 'success', 'message' => 'Category deleted successfully'], 200);
+        $category->delete();
+        return redirect('/categories')->with('success', 'Category Deleted Successfully');
     }
-
 }

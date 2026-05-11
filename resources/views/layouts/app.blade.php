@@ -110,7 +110,7 @@
                                 </div>
 
                                 <span class="font-medium">
-                                    Users
+                                    Users Management
                                 </span>
                             </div>
 
@@ -129,14 +129,62 @@
 
                         <div class="px-4 pb-4 space-y-2">
 
-                            <a href="#"
-                               class="block px-4 py-2 rounded-xl text-sm hover:bg-white/10 transition">
-                                All Users
+                            <a href="/users"
+                                class="block px-4 py-2 rounded-xl text-sm hover:bg-white/10 transition {{ request()->is('users') ? 'bg-white/10' : '' }}">
+                                    All Users
+                                </a>
+
+                                <a href="/users/create"
+                                class="block px-4 py-2 rounded-xl text-sm hover:bg-white/10 transition {{ request()->is('users/create') ? 'bg-white/10' : '' }}">
+                                    Create User
                             </a>
 
-                            <a href="#"
-                               class="block px-4 py-2 rounded-xl text-sm hover:bg-white/10 transition">
-                                Create User
+                        </div>
+                    </details>
+
+                    @endif
+
+                    <!-- Roles -->
+                    @if(auth()->user()?->role?->permission?->contains('name','manage-roles'))
+
+                    <details class="group bg-white/5 rounded-2xl overflow-hidden">
+
+                        <summary class="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-white/10 transition">
+
+                            <div class="flex items-center gap-3">
+
+                                <div class="w-9 h-9 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                                    ⚙️
+                                </div>
+
+                                <span class="font-medium">
+                                    Category Management
+                                </span>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="size-4 transition group-open:rotate-180"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor">
+
+                                <path stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </summary>
+
+                        <div class="px-4 pb-4 space-y-2">
+
+                            <a href="/categories"
+                                class="block px-4 py-2 rounded-xl text-sm hover:bg-white/10 transition {{ request()->is('categories') ? 'bg-white/10 font-bold' : '' }}">
+                                Manage Category
+                            </a>
+
+                            <a href="/categories/create"
+                                class="block px-4 py-2 rounded-xl text-sm hover:bg-white/10 transition {{ request()->is('categories/create') ? 'bg-white/10 font-bold' : '' }}">
+                                Create Category
                             </a>
 
                         </div>

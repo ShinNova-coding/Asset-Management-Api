@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function(){
     });
 
 
-
+    // User Routes
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/users/create', [UserController::class, 'create']);
     Route::get('/users/{user}/edit', [UserController::class, 'edit']);
@@ -35,9 +35,15 @@ Route::middleware('auth')->group(function(){
     Route::patch('/users/{user}', [UserController::class, 'update']);
     Route::delete('/users/{user}', [UserController::class, 'destroy']);
 
+    // Category Routes
+    Route::get('/categories', [CategoryController::class, 'index']);
+    Route::get('/categories/create', [CategoryController::class, 'create']);
+    Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
+    Route::post('/categories', [CategoryController::class, 'store']);
+    Route::patch('/categories/{category}', [CategoryController::class, 'update']);
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
 
-
-
+    // Role Routes
     Route::get('/roles',[RoleController::class,'index']);
 
     Route::get('/roles/create',[RoleController::class,'create']);
@@ -49,6 +55,18 @@ Route::middleware('auth')->group(function(){
     Route::post('/roles',[RoleController::class,'store']);
 
     Route::delete('/roles/{role}',[RoleController::class,'destroy']);
+});
+
+Route::middleware('auth')->group(function(){
+    // Existing Role & User routes...
+
+    // Category Routes
+    Route::get('/categories', [CategoryController::class, 'index']);
+    Route::get('/categories/create', [CategoryController::class, 'create']);
+    Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
+    Route::post('/categories', [CategoryController::class, 'store']);
+    Route::patch('/categories/{category}', [CategoryController::class, 'update']);
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
 });
 
 
