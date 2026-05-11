@@ -10,9 +10,10 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::withCount('assets')->latest()->get();
-        return response()->json(['status' => 'success', 'data' => $categories], 200);
+        $categories = Category::all();
+        return view('managecategory', compact('categories'));
     }
+
 
     public function store(Request $request)
     {

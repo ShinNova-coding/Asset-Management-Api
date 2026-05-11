@@ -9,10 +9,21 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    public function index()
+
+
+   
+
+    public function index(Request $request)
     {
         $users = User::with('role')->latest()->get();
-        return response()->json(['status' => 'success', 'data' => $users], 200);
+
+        // အကယ်၍ Axios (AJAX) ကနေ လာတာဆိုရင် JSON Data ပြန်ပေးမယ်
+        if ($request->ajax() || $request->wantsJson()) {
+            return response()->json(['status' => 'success', 'data' => $users], 200);
+        }
+
+        // Browser ကနေ တိုက်ရိုက်ခေါ်တာဆိုရင် Blade UI ကို ပြန်ပေးမယ်
+        return view('manageuser', compact('users'));
     }
 
     public function store(Request $request)

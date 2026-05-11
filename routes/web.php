@@ -23,18 +23,15 @@ Route::middleware('auth')->group(function(){
     Route::get('/asset',function(){
         return view('asset');
     });
-    
-        // User CRUD အတွက် UI ရော API ရော
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::post('/api/users', [UserController::class, 'store']);
-    Route::put('/api/users/{user}', [UserController::class, 'update']);
-    Route::delete('/api/users/{id}', [UserController::class, 'destroy']);
 
-    // Category CRUD အတွက် UI ရော API ရော
-    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-    Route::post('/api/categories', [CategoryController::class, 'store']);
-    Route::put('/api/categories/{category}', [CategoryController::class, 'update']);
-    Route::delete('/api/categories/{id}', [CategoryController::class, 'destroy']);
+
+    Route::get('/manage-users', function() { 
+        return view('manageuser'); })->name('users.manage');
+
+    Route::get('/manage-categories', 
+    function() { return view('managecategory'); })->name('categories.manage');
 
 });
+
+
 
