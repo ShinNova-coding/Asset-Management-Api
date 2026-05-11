@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Permission;
-use App\Models\Permissions;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use index;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class RoleController extends Controller

@@ -27,11 +27,16 @@ Route::middleware('auth')->group(function(){
     });
 
 
-    Route::get('/manage-users', function() { 
-        return view('manageuser'); })->name('users.manage');
 
-    Route::get('/manage-categories', 
-    function() { return view('managecategory'); })->name('categories.manage');
+    Route::get('/users', [UserController::class, 'index']);
+    Route::get('/users/create', [UserController::class, 'create']);
+    Route::get('/users/{user}/edit', [UserController::class, 'edit']);
+    Route::post('/users', [UserController::class, 'store']);
+    Route::patch('/users/{user}', [UserController::class, 'update']);
+    Route::delete('/users/{user}', [UserController::class, 'destroy']);
+
+
+
 
     Route::get('/roles',[RoleController::class,'index']);
 
@@ -43,8 +48,9 @@ Route::middleware('auth')->group(function(){
 
     Route::post('/roles',[RoleController::class,'store']);
 
-        Route::delete('/roles/{role}',[RoleController::class,'destroy']);
+    Route::delete('/roles/{role}',[RoleController::class,'destroy']);
 });
+
 
 
 

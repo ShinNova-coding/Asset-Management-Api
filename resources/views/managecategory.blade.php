@@ -1,17 +1,5 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Manage Categories</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</head>
-<body class="bg-light p-4">
-=======
 @extends('layouts.app')
 @section('content')
->>>>>>> 949c4877df802f32be66384faf2308d20eb732c2
     <div class="container col-md-8">
         <h3 class="mb-4">Category CRUD Management</h3>
 
@@ -77,9 +65,4 @@
 
         fetchCats();
     </script>
-<<<<<<< HEAD
-</body>
-</html>
-=======
 @endsection
->>>>>>> 949c4877df802f32be66384faf2308d20eb732c2
