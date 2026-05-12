@@ -94,8 +94,6 @@
                         <td>
                             <div class="flex items-center gap-3">
 
-                                
-
                                 <div>
                                     <h3 class="font-semibold text-gray-800">
                                         {{ $role->name }}

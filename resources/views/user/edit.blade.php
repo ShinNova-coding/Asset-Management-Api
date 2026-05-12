@@ -7,7 +7,7 @@
         <p class="text-gray-500 text-sm">Update user information and system access levels.</p>
     </div>
 
-    <form action="/users/{{ $user->id }}" method="POST">
+    <form action="/users/{{ $user->employee_id }}" method="POST">
         @csrf
         @method('PATCH')
 
