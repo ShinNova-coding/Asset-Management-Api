@@ -4,6 +4,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AssetController;
 use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 
@@ -60,6 +61,16 @@ Route::middleware('auth')->group(function(){
     Route::post('/roles',[RoleController::class,'store'])->name('roles.store');
 
     Route::delete('/roles/{role}',[RoleController::class,'destroy'])->name('roles.destroy');
+
+
+    // Asset Routes
+    Route::get('/assets', [AssetController::class, 'index'])->name('assets.index');
+    Route::get('/assets/create', [AssetController::class, 'create'])->name('assets.create');
+    Route::post('/assets', [AssetController::class, 'store'])->name('assets.store');
+    Route::get('/assets/{asset}/edit', [AssetController::class, 'edit'])->name('assets.edit');
+    Route::patch('/assets/{asset}', [AssetController::class, 'update'])->name('assets.update');
+    Route::delete('/assets/{asset}', [AssetController::class, 'destroy'])->name('assets.destroy');
+    
 });
 
 
