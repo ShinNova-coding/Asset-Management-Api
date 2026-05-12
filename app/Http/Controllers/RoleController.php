@@ -99,6 +99,7 @@ return redirect('/roles')->with('success', 'Role Created Successfully');
      */
     public function destroy(Role $role)
     {
+        // dd($role->id);
         $role->permission()->detach();
         $role->delete();
         return redirect('/roles');

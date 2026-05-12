@@ -28,46 +28,41 @@ Route::middleware('auth')->group(function(){
 
 
     // User Routes
-    Route::get('/users', [UserController::class, 'index']);
-    Route::get('/users/create', [UserController::class, 'create']);
-    Route::get('/users/{user}/edit', [UserController::class, 'edit']);
-    Route::post('/users', [UserController::class, 'store']);
-    Route::patch('/users/{user}', [UserController::class, 'update']);
-    Route::delete('/users/{user}', [UserController::class, 'destroy']);
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+
+    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+
+    Route::post('/users', [UserController::class, 'store'])->name('users.store');
+
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+
+    Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
+
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
     // Category Routes
-    Route::get('/categories', [CategoryController::class, 'index']);
-    Route::get('/categories/create', [CategoryController::class, 'create']);
-    Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
-    Route::post('/categories', [CategoryController::class, 'store']);
-    Route::patch('/categories/{category}', [CategoryController::class, 'update']);
-    Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::patch('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
     // Role Routes
-    Route::get('/roles',[RoleController::class,'index']);
+    Route::get('/roles',[RoleController::class,'index'])->name('roles.index');
 
-    Route::get('/roles/create',[RoleController::class,'create']);
+    Route::get('/roles/create',[RoleController::class,'create'])->name('roles.create');
 
-    Route::get('/roles/{role}/edit',[RoleController::class,'edit']);
+    Route::get('/roles/{role}/edit',[RoleController::class,'edit'])->name('roles.edit');
 
-    Route::patch('/roles/{role}',[RoleController::class,'update']);
+    Route::patch('/roles/{role}',[RoleController::class,'update'])->name('roles.update');
 
-    Route::post('/roles',[RoleController::class,'store']);
+    Route::post('/roles',[RoleController::class,'store'])->name('roles.store');
 
-    Route::delete('/roles/{role}',[RoleController::class,'destroy']);
+    Route::delete('/roles/{role}',[RoleController::class,'destroy'])->name('roles.destroy');
 });
 
-Route::middleware('auth')->group(function(){
-    // Existing Role & User routes...
 
-    // Category Routes
-    Route::get('/categories', [CategoryController::class, 'index']);
-    Route::get('/categories/create', [CategoryController::class, 'create']);
-    Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
-    Route::post('/categories', [CategoryController::class, 'store']);
-    Route::patch('/categories/{category}', [CategoryController::class, 'update']);
-    Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
-});
 
 
 

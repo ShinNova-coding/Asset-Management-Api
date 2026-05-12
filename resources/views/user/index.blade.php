@@ -40,10 +40,13 @@
                     <td>{{ $user->joined_date }}</td>
                     <td>
                         <div class="flex items-center gap-3">
-                            <a href="/users/{{ $user->id }}/edit" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded-xl text-sm">Edit</a>
-                            <form action="/users/{{ $user->id }}" method="POST" onsubmit="return confirm('Delete this user?')">
+                            <a href="/users/{{ $user->employee_id }}/edit" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded-xl text-sm">Edit</a>
+                            <form action="/users/{{ $user->employee_id }}" 
+                                method="POST" 
+                                onsubmit="return confirm('Delete this user?')">
                                 @csrf @method('DELETE')
-                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-xl text-sm">Delete</button>
+                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-xl text-sm">
+                                    Delete</button>
                             </form>
                         </div>
                     </td>

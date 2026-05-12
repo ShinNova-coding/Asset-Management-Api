@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -47,16 +48,18 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        // dd($user->employee_id);
         $roles = Role::all();
         return view('user.edit', compact('user', 'roles'));
     }
 
     public function update(Request $request, User $user)
     {
+        // dd($request->all());
         $request->validate([
             'name'      => 'required|string|max:255',
             'role_id'   => 'required|exists:roles,id',
-            'email'     => 'required|email|unique:users,email,' . $user->id,
+            'email' => "required|email|unique:users,email,{$user->employee_id},employee_id",
             'left_date' => 'nullable|date|after_or_equal:joined_date',
         ]);
 
@@ -72,6 +75,7 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        // dd($user->employee_id);
         $user->delete();
         return redirect('/users')->with('success', 'User Deleted Successfully');
     }
