@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 class AssetController extends Controller
 {
     public function index()
-    {
-        // Category relationship 
+    { 
         $assets = Asset::with('category')->latest()->get();
         return view('asset.index', compact('assets'));
     }

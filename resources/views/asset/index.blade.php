@@ -36,10 +36,10 @@
                     <td>{{ ucfirst($asset->condition) }}</td>
                     <td>
                         <div class="flex items-center gap-2">
-                            <a href="/assets/{{ $asset->asset_id }}/edit" class="text-blue-500 hover:underline">Edit</a>
+                            <a href="/assets/{{ $asset->asset_id }}/edit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl text-sm transition">Edit</a>
                             <form action="/assets/{{ $asset->asset_id }}" method="POST" onsubmit="return confirm('Delete this asset?')">
                                 @csrf @method('DELETE')
-                                <button type="submit" class="text-red-500 hover:underline">Delete</button>
+                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-sm transition">Delete</button>
                             </form>
                         </div>
                     </td>

@@ -144,8 +144,58 @@
 
                     @endif
 
-                    <!-- Roles -->
-                    @if(auth()->user()?->role?->permission?->contains('name','manage-roles'))
+
+                    <!-- Manage Asset -->
+                    @if(auth()->user()?->role?->permission?->contains('name','view-assets'))
+
+                    <details class="group bg-white/5 rounded-2xl overflow-hidden">
+
+                        <summary class="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-white/10 transition">
+
+                            <div class="flex items-center gap-3">
+
+                                <div class="w-9 h-9 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                                    ⚙️
+                                </div>
+
+                                <span class="font-medium">
+                                    Asset Management
+                                </span>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="size-4 transition group-open:rotate-180"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor">
+
+                                <path stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </summary>
+
+                        <div class="px-4 pb-4 space-y-2">
+
+                            <a href="/assets"
+                                class="block px-4 py-2 rounded-xl text-sm hover:bg-white/10 transition {{ request()->is('categories') ? 'bg-white/10 font-bold' : '' }}">
+                                Manage Asset
+                            </a>
+
+                            <a href="/assets/create"
+                                class="block px-4 py-2 rounded-xl text-sm hover:bg-white/10 transition {{ request()->is('categories/create') ? 'bg-white/10 font-bold' : '' }}">
+                                Create Asset
+                            </a>
+
+                        </div>
+                    </details>
+
+                    @endif
+
+            
+                    <!-- Manage Category -->
+                    @if(auth()->user()?->role?->permission?->contains('name','manage-categories'))
 
                     <details class="group bg-white/5 rounded-2xl overflow-hidden">
 
