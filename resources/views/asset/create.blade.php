@@ -50,9 +50,9 @@
                 </select>
             </div>
         </div>
-        <div class="flex justify-end gap-4 border-t pt-6">
-            <a href="/assets" class="text-gray-500 font-medium">Cancel</a>
-            <button type="submit" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl shadow-lg">Save Asset</button>
+        <div class="flex items-center justify-end space-x-4 border-t pt-6">
+            <a href="/assets" class="text-gray-500 hover:text-gray-700 font-medium">Cancel</a>
+            <button type="submit" class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-md transition transform active:scale-95">Save Asset</button>
         </div>
     </form>
 </div>
