@@ -57,17 +57,7 @@ Route::middleware('auth')->group(function(){
     Route::delete('/roles/{role}',[RoleController::class,'destroy']);
 });
 
-Route::middleware('auth')->group(function(){
-    // Existing Role & User routes...
 
-    // Category Routes
-    Route::get('/categories', [CategoryController::class, 'index']);
-    Route::get('/categories/create', [CategoryController::class, 'create']);
-    Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
-    Route::post('/categories', [CategoryController::class, 'store']);
-    Route::patch('/categories/{category}', [CategoryController::class, 'update']);
-    Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
-});
 
 
 
